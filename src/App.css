@@ -1,28 +1,364 @@
-.App {
-  text-align: center;
-}
+.provider-list-itemcontent {
+  display: flex; }
+  .provider-list-itemcontent .info {
+    flex-grow: 1; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+.cta {
+  flex-direction: column;
+  justify-content: flex-end;
+  display: flex; }
+.header-nav-container {
+  padding-top: 10px;
+  display: flex;
+  align-items: baseline; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.header-nav-brand {
+  flex-grow: 1; }
+/**
+* @Module name: reset.scss
+* @description: The styles will be reset and we are taking
+* responsibility of managing all the styles, even default styles !!!
+*/
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd, figure,
+blockquote, details, hr,
+fieldset, pre, table, body {
+  margin: 0;
+  padding: 0; }
 
-.App-title {
-  font-size: 1.5em;
-}
+ul {
+  list-style: none; }
 
-.App-intro {
-  font-size: large;
-}
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+b,
+strong {
+  font-weight: bolder; }
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/*reset link colors*/
+a {
+  text-decoration: none;
+  color: s-color(blue); }
+  a:hover {
+    text-decoration: underline; }
+
+/* reset all values for input elements */
+input, select, button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+/* TODO! Review required */
+/* Yellow or Gold theme ?*/
+/**
+* color function which can be used anywhere to pass correct values
+*/
+/**
+* @file Viewport
+* @description Have simple mixins to add styles to correct viewports
+* Different viewports currently supported:
+* Default Styles: Width < 768px
+* Large Mobile screen : width > 768 and width < 992
+* Tablets and small desktops: width > 992 and width < 1200
+* Large desktops: width > 1200
+*/
+/* viewport settings */
+/**
+* @file Typography
+* @description Sets default typography
+*/
+/**
+* @mixin Set system or sans-serif font
+* @param $stock - system or sans serif font
+*/
+/**
+* @mixin calculate font size based on steps from base
+* @param $step - No of steps from base font
+* 0 specifies same as base step (16px / 1rem)
+*/
+/**
+* @mixin to generate headers from h1 to h6
+*/
+/* base styles */
+html {
+  /* set base font size of 18px for mobiles*/
+  font-size: 1rem;
+  /* set base font size of 18px for desktops*/ }
+  @media (min-width: 1200px) {
+    html {
+      font-size: 1.125rem; } }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333; }
+
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+  font-weight: inherit; }
+
+.display-2 {
+  font-size: 3.5rem; }
+
+.display-1 {
+  font-size: 4rem; }
+
+h1, .h1,
+h2, .h2,
+.display-1, .display-2 {
+  line-height: 1.5; }
+
+small, .font_small {
+  font-size: 0.75rem; }
+
+sub,
+sup {
+  font-size: 0.5rem; }
+
+/**
+* @file layout
+* @description Generates simple flexbox layout
+*/
+.gutter {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 52em; }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 960px; } }
+
+.centered {
+  margin-left: auto;
+  margin-right: auto; }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw; }
+
+/*default small columns*/
+.column-1 {
+  flex-basis: 8.33333%;
+  max-width: 8.33333%; }
+
+.column-2 {
+  flex-basis: 16.66667%;
+  max-width: 16.66667%; }
+
+.column-3 {
+  flex-basis: 25%;
+  max-width: 25%; }
+
+.column-4 {
+  flex-basis: 33.33333%;
+  max-width: 33.33333%; }
+
+.column-5 {
+  flex-basis: 41.66667%;
+  max-width: 41.66667%; }
+
+.column-6 {
+  flex-basis: 50%;
+  max-width: 50%; }
+
+.column-7 {
+  flex-basis: 58.33333%;
+  max-width: 58.33333%; }
+
+.column-8 {
+  flex-basis: 66.66667%;
+  max-width: 66.66667%; }
+
+.column-9 {
+  flex-basis: 75%;
+  max-width: 75%; }
+
+.column-10 {
+  flex-basis: 83.33333%;
+  max-width: 83.33333%; }
+
+.column-11 {
+  flex-basis: 91.66667%;
+  max-width: 91.66667%; }
+
+.column-12 {
+  flex-basis: 100%;
+  max-width: 100%; }
+
+/*columns in the desktop*/
+@media (min-width: 1200px) {
+  .column-lg-1 {
+    flex-basis: 8.33333%;
+    max-width: 8.33333%; }
+  .column-lg-2 {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%; }
+  .column-lg-3 {
+    flex-basis: 25%;
+    max-width: 25%; }
+  .column-lg-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%; }
+  .column-lg-5 {
+    flex-basis: 41.66667%;
+    max-width: 41.66667%; }
+  .column-lg-6 {
+    flex-basis: 50%;
+    max-width: 50%; }
+  .column-lg-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%; }
+  .column-lg-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%; }
+  .column-lg-9 {
+    flex-basis: 75%;
+    max-width: 75%; }
+  .column-lg-10 {
+    flex-basis: 83.33333%;
+    max-width: 83.33333%; }
+  .column-lg-11 {
+    flex-basis: 91.66667%;
+    max-width: 91.66667%; }
+  .column-lg-12 {
+    flex-basis: 100%;
+    max-width: 100%; } }
+
+/* Normal, line-height size space */
+.bottom-spacer {
+  margin-bottom: 1.5rem; }
+
+/* No space */
+.reset-bottom-spacer {
+  margin-bottom: 0; }
+
+/* Double normal space */
+.bottom-spacer-2 {
+  margin-bottom: 3rem; }
+
+/* Half normal space */
+.bottom-spacer-half {
+  margin-bottom: 0.75rem; }
+
+.right-align {
+  text-align: right; }
+
+.center-align {
+  text-align: center; }
+
+.left-align {
+  text-align: left; }
+
+.around-spacer {
+  padding: 1.5rem; }
+
+.horizontal-spacer {
+  padding: 0 1.5rem; }
+
+.vertical-spacer {
+  padding: 1.5rem 0; }
+
+a {
+  color: #0088cc;
+  cursor: pointer; }
+
+.error-message {
+  color: red; }
+
+header {
+  background-color: #000;
+  color: #fff; height: 50px; }
+
+.header-nav-actionlistitem {
+  color: #fff; }
+
+  /**app related styles*/
+  .add-form input {
+    font-size: 24px;
+    padding: 14px;
+  }
+
+  .add-form button {
+    font-size: 48px;
+    border: none;
+    appearance: none;
+  }
+
+  .list-item {
+    font-size: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d6d6d6;
+    padding-top: 24px;
+  }
+
+  .numbered {
+    border-radius: 50%;
+    display: inline-block;
+    width: 38px;
+    font-size: 24px;
+    background: #d6d6d6;
+    text-align: center;
+    margin-right: 50px;
+    margin-bottom: 20px;
+  }
