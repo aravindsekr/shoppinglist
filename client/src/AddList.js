@@ -19,19 +19,23 @@ class AddList extends Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
         const val = e.target.value;
-        this.setState({
-            itemName: val
-        }, () => {
-            this.addItem();
-        });
+        if(val) {
+          this.setState({
+              itemName: val
+          }, () => {
+              this.addItem();
+          });
+        }
     }
   }
 
   inputChanged(e) {
     const val = e.target.value;
-    this.setState({
+    if(val) {
+      this.setState({
         itemName: val
-    });
+      });
+    }
   }
 
   render() {
